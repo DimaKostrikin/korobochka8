@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ContentEditable from "react-contenteditable";
-import { Cell, CellProps, Column, Row, useTable } from "react-table";
+import { Column, useTable } from "react-table";
 import styled from "styled-components";
-import { EditableCell } from "./TableCell";
 
 type TableColumns = {
   ID: string;
@@ -13,17 +12,6 @@ type TableColumns = {
   priceForUnit: string;
   sum: string;
   address: string;
-};
-
-const columnsGrowMap = {
-  ID: 1,
-  KPGZ: 4,
-  SPGZ: 4,
-  value: 2,
-  unit: 2,
-  priceForUnit: 2,
-  sum: 2,
-  address: 4
 };
 
 const TableContainer = styled.table`
