@@ -14,20 +14,19 @@ type TableColumns = {
   address: string;
 };
 
-const TableContainer = styled.table`
-  border: solid 1px blue;
-`;
+const TableContainer = styled.table``;
 
 const Tr = styled.tr<{ odd?: boolean }>`
   display: grid;
-  grid-template-columns: 1fr 3fr 3fr 1fr 1fr 1fr 1fr 2fr;
+  grid-template-columns: 1fr 3fr 3fr 1fr 1.2fr 1fr 1fr 2fr;
   background-color: ${(props) => (props.odd ?? false ? "#F1F1F1" : "#FFFFFF")};
 `;
 
-const Td = styled.td`
+const Td = styled.td<{ number?: boolean }>`
   display: block;
   padding: 16px;
   overflow: auto;
+  text-align: ${(props) => (props.number ?? false ? "end" : "inherit")};
 `;
 
 const Th = styled.td`
@@ -141,7 +140,13 @@ export const Table = () => {
             <Tr odd={index % 2 === 0} {...row.getRowProps()}>
               {row.cells.map((cell) => {
                 return (
-                  <Td {...cell.getCellProps()}>
+                  <Td
+                    number={
+                      cell.column.id === "priceForUnit" ||
+                      cell.column.id === "sum"
+                    }
+                    {...cell.getCellProps()}
+                  >
                     <ContentEditable
                       html={cell.value}
                       onChange={(e) => {
