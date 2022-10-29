@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "Golos";
+  src: local("Golos"), url("./fonts/Golos-Text_Regular.ttf") format("truetype");
+  font-weight: normal;
+}

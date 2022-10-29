@@ -20,6 +20,8 @@ const Tr = styled.tr<{ odd?: boolean }>`
   display: grid;
   grid-template-columns: 1fr 3fr 3fr 1fr 1.2fr 1fr 1fr 2fr;
   background-color: ${(props) => (props.odd ?? false ? "#F1F1F1" : "#FFFFFF")};
+  font-family: Golos;
+  font-weight: normal;
 `;
 
 const Td = styled.td<{ number?: boolean }>`
@@ -73,7 +75,7 @@ export const Table = () => {
     () => [
       {
         Header: "ID",
-        accessor: "ID" // accessor is the "key" in the data
+        accessor: "ID"
       },
       {
         Header: "КПГЗ",
