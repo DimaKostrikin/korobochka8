@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { Input } from "./ui/Input/Input";
+import { Option, Select } from "./ui/Select/Select";
 import { Table } from "./ui/Table/Table";
-import { OverlayProvider, OverlayContainer } from "react-aria";
-import { Example } from "./ui/Popover/popover";
+
 const Container = styled.div`
   background-color: #ffffff;
   width: 1000px;
@@ -13,7 +13,6 @@ const Container = styled.div`
 
 const App = () => {
   const [value, setValue] = useState("");
-  const overlayRef = useRef();
 
   return (
     <Container>
@@ -21,7 +20,9 @@ const App = () => {
       <div>
         <Input value={value} onChange={(e) => setValue(e.target.value)} />
       </div>
-      <Example />
+      <Select>
+        <Option key={"1"}>1</Option>
+      </Select>
     </Container>
   );
 };
